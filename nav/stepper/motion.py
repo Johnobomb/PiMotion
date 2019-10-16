@@ -30,18 +30,18 @@ class StepperMotion:
                         that defaults to STEPPER_DELAY. This allows us to change 
                         the speed via the parameter.
 	"""
-	def mov(self, dir, distance, delay=STEPPER_DELAY, GPIO):
+	def mov(self, dir, distance, GPIO, delay=STEPPER_DELAY):
             distance = int(distance* STEPS_PER_INCH)
             
             try:
                 #if FWD
-                if dir == True:
+                if dir:
                     for pin in [BR_dir, FR_dir]:
                         GPIO.output(pin, CW)
                     for pin in [BL_dir, FL_dir]:
                         GPIO.output(pin, CCW)
                 #else if REV    
-                elif dir == False:
+                elif not dir:
                     for pin in [BR_dir, FR_dir]:
                         GPIO.output(pin, CCW)
                     for pin in [BL_dir, FL_dir]:
@@ -53,9 +53,6 @@ class StepperMotion:
                         [GPIO.output(x, GPIO.LOW) for x in self.wheels_step]
                         sleep(delay)
                 
-                    sleep(.5)    
-                    for pin in self.step_mode_select:
-                        GPIO.output(pin, GPIO.LOW)
                 else:
                     raise ValueError
             
