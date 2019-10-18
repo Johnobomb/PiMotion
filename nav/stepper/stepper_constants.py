@@ -20,6 +20,7 @@ BL_dir = 8
 FL_step = 24
 FL_dir = 23
 
+<<<<<<< HEAD
 # Direction constants
 FWD = True
 REV = False
@@ -36,6 +37,15 @@ HALF_STEPS_PER_REVOLUTION = 400
 QUARTER_STEPS_PER_REVOLUTION = 800 		
 EIGTH_STEPS_PER_REVOLUTION = 1600
 
+=======
+#Direction constants
+FWD = True
+REV = False
+
+CW = 1 			                 # Clockwise rotation
+CCW = 0 		                 # Counter-clockwise rotation
+STEPS_PER_REVOLUTION = 800 		 # Steps per Revolution (360/1.8) * 4. Multiply by 4 because quarter step.
+>>>>>>> upstream/motion
 DISTANCE = 60*math.pi/25.4
 
 # individual steps per inch based off of whole step, 1/2 step, 1/4 step, and 1/8 step.
