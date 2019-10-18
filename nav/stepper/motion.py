@@ -29,9 +29,17 @@ class StepperMotion:
                         set to be True or False. Delay argument has been added 
                         that defaults to STEPPER_DELAY. This allows us to change 
                         the speed via the parameter.
+        Change Log
+                [0.2.5] Jonathan
+                        --- New constants for STEPS_PER_REVOLUTION and 
+                        STEPS_PER_INCH have been made individually for different 
+                        robots in constants.py. Constant STEPS_PER_INCH has been 
+                        updated to QUARTER_STEPS_PER_INCH in motion.py and 
+                        QUARTER_STEPS_PER_REVOLUTION in reference.py.
+
 	"""
 	def mov(self, dir, distance, GPIO, delay=STEPPER_DELAY):
-            distance = int(distance* STEPS_PER_INCH)
+            distance = int(distance* QUARTER_STEPS_PER_INCH)
             
             try:
                 #if FWD
