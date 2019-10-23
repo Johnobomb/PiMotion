@@ -4,6 +4,8 @@ STEPPER_m0 = 17
 STEPPER_m1 = 27
 STEPPER_m2 = 22
 
+STEP_MODE_SELECT = [STEPPER_m0, STEPPER_m1, STEPPER_m2]
+
 # First wheel GPIO Pin
 BR_step = 21
 BR_dir = 20
@@ -20,7 +22,6 @@ BL_dir = 8
 FL_step = 24
 FL_dir = 23
 
-<<<<<<< HEAD
 # Direction constants
 FWD = True
 REV = False
@@ -37,15 +38,10 @@ HALF_STEPS_PER_REVOLUTION = 400
 QUARTER_STEPS_PER_REVOLUTION = 800 		
 EIGTH_STEPS_PER_REVOLUTION = 1600
 
-=======
-#Direction constants
-FWD = True
-REV = False
+CW = 1                           # Clockwise rotation
+CCW = 0                          # Counter-clockwise rotation
+STEPS_PER_REVOLUTION = 800       # Steps per Revolution (360/1.8) * 4. Multiply by 4 because quarter step.
 
-CW = 1 			                 # Clockwise rotation
-CCW = 0 		                 # Counter-clockwise rotation
-STEPS_PER_REVOLUTION = 800 		 # Steps per Revolution (360/1.8) * 4. Multiply by 4 because quarter step.
->>>>>>> upstream/motion
 DISTANCE = 60*math.pi/25.4
 
 # individual steps per inch based off of whole step, 1/2 step, 1/4 step, and 1/8 step.
@@ -55,3 +51,4 @@ QUARTER_STEPS_PER_INCH = QUARTER_STEPS_PER_REVOLUTION/DISTANCE
 EIGTH_STEPS_PER_INCH = EIGTH_STEPS_PER_REVOLUTION/DISTANCE
 
 STEPPER_DELAY = 0.0005
+STEPS_PER_INCH_STRAFE = STEPS_PER_REVOLUTION/(DISTANCE*0.9)  # Calibrates steps_per_inch for strafe motion.
